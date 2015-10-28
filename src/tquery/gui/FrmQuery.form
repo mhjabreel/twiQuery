@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="tQuery"/>
+    <Property name="resizable" type="boolean" value="false"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <Component id="jPanel2" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btnStart" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnPause" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnStop" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Component id="lblMsgs" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnStart" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnPause" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnStop" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblMsgs" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Advanced Search"/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="txtAllWords" max="32767" attributes="0"/>
+                      <Component id="txtExact" max="32767" attributes="0"/>
+                      <Component id="txtAnyWords" max="32767" attributes="0"/>
+                      <Component id="txtNoneWords" max="32767" attributes="0"/>
+                      <Component id="txtHashTags" max="32767" attributes="0"/>
+                      <Component id="cmbLangs" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtFromAccount" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtToAccount" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtMentioning" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtPlace" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="txtSince" min="-2" pref="202" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="ckPositive" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Component id="ckNegative" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="ckQuestions" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="0" pref="40" max="32767" attributes="0"/>
+                                  <Component id="txtUntil" min="-2" pref="202" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="ckRetweets" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtAllWords" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtExact" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtAnyWords" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNoneWords" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtHashTags" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbLangs" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFromAccount" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtToAccount" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtMentioning" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPlace" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtSince" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtUntil" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="ckPositive" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ckNegative" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ckQuestions" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ckRetweets" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Words"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="All of these words"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtAllWords">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="This exact phrase"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtExact">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Any of these words"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtAnyWords">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="None of these words"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtNoneWords">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel6">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="These hashtags"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtHashTags">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel7">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Written in"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cmbLangs">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="63">
+                <StringItem index="0" value="Any Language"/>
+                <StringItem index="1" value="Amharic (&#x12a0;&#x121b;&#x122d;&#x129b;)"/>
+                <StringItem index="2" value="Arabic (&#x627;&#x644;&#x639;&#x631;&#x628;&#x64a;&#x629;)"/>
+                <StringItem index="3" value="Armenian (&#x570;&#x561;&#x575;&#x565;&#x580;&#x565;&#x576;)"/>
+                <StringItem index="4" value="Bengali (&#x9ac;&#x9be;&#x982;&#x9b2;&#x9be;)"/>
+                <StringItem index="5" value="Bosnian (bosanski)"/>
+                <StringItem index="6" value="Bulgarian (&#x431;&#x44a;&#x43b;&#x433;&#x430;&#x440;&#x441;&#x43a;&#x438;)"/>
+                <StringItem index="7" value="Burmese (&#x1017;&#x1019;&#x102c;)"/>
+                <StringItem index="8" value="&lt;option value=&quot;ckb&quot;&gt;Central Kurdish (&#x6a9;&#x648;&#x631;&#x62f;&#x6cc;&#x6cc; &#x646;&#x627;&#x648;&#x6d5;&#x646;&#x62f;&#x6cc;)"/>
+                <StringItem index="9" value="Chinese (&#x4e2d;&#x6587;)"/>
+                <StringItem index="10" value="Croatian (hrvatski)"/>
+                <StringItem index="11" value="Danish (dansk)"/>
+                <StringItem index="12" value="Divehi (Divehi)"/>
+                <StringItem index="13" value="Dutch (Nederlands)"/>
+                <StringItem index="14" value="English (English)"/>
+                <StringItem index="15" value="Estonian (eesti)"/>
+                <StringItem index="16" value="Finnish (suomi)"/>
+                <StringItem index="17" value="French (fran&#xe7;ais)"/>
+                <StringItem index="18" value="Georgian (&#x10e5;&#x10d0;&#x10e0;&#x10d7;&#x10e3;&#x10da;&#x10d8;)"/>
+                <StringItem index="19" value="German (Deutsch)"/>
+                <StringItem index="20" value="Greek (&#x395;&#x3bb;&#x3bb;&#x3b7;&#x3bd;&#x3b9;&#x3ba;&#x3ac;)"/>
+                <StringItem index="21" value="Gujarati (&#xa97;&#xac1;&#xa9c;&#xab0;&#xabe;&#xaa4;&#xac0;)"/>
+                <StringItem index="22" value="Hebrew (&#x5e2;&#x5d1;&#x5e8;&#x5d9;&#x5ea;)"/>
+                <StringItem index="23" value="Hindi (&#x939;&#x93f;&#x928;&#x94d;&#x926;&#x940;)"/>
+                <StringItem index="24" value="Hungarian (magyar)"/>
+                <StringItem index="25" value="Icelandic (&#xed;slenska)"/>
+                <StringItem index="26" value="Indonesian (Bahasa Indonesia)"/>
+                <StringItem index="27" value="Italian (italiano)"/>
+                <StringItem index="28" value="Japanese (&#x65e5;&#x672c;&#x8a9e;)"/>
+                <StringItem index="29" value="Kannada (&#xc95;&#xca8;&#xccd;&#xca8;&#xca1;)"/>
+                <StringItem index="30" value="Khmer (&#x1781;&#x17d2;&#x1798;&#x17c2;&#x179a;)"/>
+                <StringItem index="31" value="Korean (&#xd55c;&#xad6d;&#xc5b4;)"/>
+                <StringItem index="32" value="Lao (&#xea5;&#xeb2;&#xea7;)"/>
+                <StringItem index="33" value="Latvian (latvie&#x161;u)"/>
+                <StringItem index="34" value="Lithuanian (lietuvi&#x173;)"/>
+                <StringItem index="35" value="Malayalam (&#xd2e;&#xd32;&#xd2f;&#xd3e;&#xd33;&#xd02;)"/>
+                <StringItem index="36" value="Marathi (&#x92e;&#x930;&#x93e;&#x920;&#x940;)"/>
+                <StringItem index="37" value="Nepali (&#x928;&#x947;&#x92a;&#x93e;&#x932;&#x940;)"/>
+                <StringItem index="38" value="Norwegian (norsk)"/>
+                <StringItem index="39" value="Oriya (&#xb13;&#xb21;&#xb3c;&#xb3f;&#xb06;)"/>
+                <StringItem index="40" value="Pashto (&#x67e;&#x69a;&#x62a;&#x648;)"/>
+                <StringItem index="41" value="Persian (&#x641;&#x627;&#x631;&#x633;&#x6cc;)"/>
+                <StringItem index="42" value="Polish (polski)"/>
+                <StringItem index="43" value="Portuguese (portugu&#xea;s)"/>
+                <StringItem index="44" value="Punjabi (&#xa2a;&#xa70;&#xa1c;&#xa3e;&#xa2c;&#xa40;)"/>
+                <StringItem index="45" value="Romanian (rom&#xe2;n&#x103;)"/>
+                <StringItem index="46" value="Russian (&#x440;&#x443;&#x441;&#x441;&#x43a;&#x438;&#x439;)"/>
+                <StringItem index="47" value="Serbian (&#x441;&#x440;&#x43f;&#x441;&#x43a;&#x438;)"/>
+                <StringItem index="48" value="Sindhi (&#x633;&#x646;&#x68c;&#x64a;)"/>
+                <StringItem index="49" value="Sinhala (&#xdc3;&#xdd2;&#xd82;&#xdc4;&#xdbd;)"/>
+                <StringItem index="50" value="Slovak (sloven&#x10d;ina)"/>
+                <StringItem index="51" value="Slovenian (sloven&#x161;&#x10d;ina)"/>
+                <StringItem index="52" value="Spanish (espa&#xf1;ol)"/>
+                <StringItem index="53" value="Swedish (svenska)"/>
+                <StringItem index="54" value="Tagalog (Tagalog)"/>
+                <StringItem index="55" value="Tamil (&#xba4;&#xbae;&#xbbf;&#xbb4;&#xbcd;)"/>
+                <StringItem index="56" value="Telugu (&#xc24;&#xc46;&#xc32;&#xc41;&#xc17;&#xc41;)"/>
+                <StringItem index="57" value="Thai (&#xe44;&#xe17;&#xe22;)"/>
+                <StringItem index="58" value="Tibetan (&#xf56;&#xf7c;&#xf51;&#xf0b;&#xf66;&#xf90;&#xf51;&#xf0b;)"/>
+                <StringItem index="59" value="Turkish (T&#xfc;rk&#xe7;e)"/>
+                <StringItem index="60" value="Urdu (&#x627;&#x631;&#x62f;&#x648;)"/>
+                <StringItem index="61" value="Uyghur (&#x626;&#x6c7;&#x64a;&#x63a;&#x6c7;&#x631;&#x686;&#x6d5;)"/>
+                <StringItem index="62" value="Vietnamese (Ti&#x1ebf;ng Vi&#x1ec7;t)"/>
+              </StringArray>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel8">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="People"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel9">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="From these accounts"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtFromAccount">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel10">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="To these accounts"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtToAccount">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel11">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Mentioning these accounts"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtMentioning">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel12">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Places"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel13">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Near this place"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtPlace">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel14">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Dates"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel15">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="From this date "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtSince">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel16">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="to"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtUntil">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel17">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Other"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="ckPositive">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Positive :)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="ckNegative">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Negative :("/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="ckQuestions">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Question ?"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="ckRetweets">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Include retweets"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel2">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Save options"/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="opCSV" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="opJSON" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="opSQLIte" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="txtFilePath" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnBrwose" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="opCSV" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="opJSON" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="opSQLIte" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtFilePath" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnBrwose" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel18">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Output format"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="opCSV">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="CSV"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="opJSON">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="JSON"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="opSQLIte">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="SQLite"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtFilePath">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel19">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="File path"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnBrwose">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="..."/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="btnStart">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Start"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnPause">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pause"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnStop">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Stop"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblMsgs">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Click start to start scraping tweets.."/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel20">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="0 tweet(s) scraped"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
