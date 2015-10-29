@@ -73,7 +73,7 @@ public class FrmQuery extends javax.swing.JFrame {
         btnPause = new javax.swing.JButton();
         btnStop = new javax.swing.JButton();
         lblMsgs = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
+        lblTweetsLog = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("tQuery");
@@ -345,8 +345,8 @@ public class FrmQuery extends javax.swing.JFrame {
         lblMsgs.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMsgs.setText("Click start to start scraping tweets..");
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel20.setText("0 tweet(s) scraped");
+        lblTweetsLog.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblTweetsLog.setText("0 tweet(s) scraped");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -370,7 +370,7 @@ public class FrmQuery extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(lblMsgs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel20)
+                .addComponent(lblTweetsLog)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -388,7 +388,7 @@ public class FrmQuery extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMsgs)
-                    .addComponent(jLabel20))
+                    .addComponent(lblTweetsLog))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -452,7 +452,6 @@ public class FrmQuery extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -463,6 +462,7 @@ public class FrmQuery extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblMsgs;
+    private javax.swing.JLabel lblTweetsLog;
     private javax.swing.JRadioButton opCSV;
     private javax.swing.JRadioButton opJSON;
     private javax.swing.JRadioButton opSQLIte;

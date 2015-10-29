@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
-import tquery.utils.TweetsWriter;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.text.DateFormat;
@@ -18,23 +17,65 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import tquery.utils.CSVTweetsWriter;
+import tquery.utils.TweetsWriter;
 
 /**
  *
  * @author MHJ
  */
-public class TQuery {
+public class TweetsSpider {
+    
+    private TweetsWriter tweetsWriter;
+    
+    private JLabel lblTweetsLogger = null;
+    
+    private boolean needToStop = false;
 
+    public TweetsSpider(TweetsWriter tweetsWriter) {
+        this.tweetsWriter = tweetsWriter;
+    }
 
+    public TweetsSpider(TweetsWriter tweetsWriter, JLabel lblTweetsLogger) {
+        this.tweetsWriter = tweetsWriter;
+        this.lblTweetsLogger = lblTweetsLogger;
+    }
+    
+    
 
-    public static void crawlTweets(String query, TweetsWriter writer) {
+    public TweetsWriter getTweetsWriter() {
+        return tweetsWriter;
+    }
+
+    public void setTweetsWriter(TweetsWriter tweetsWriter) {
+        this.tweetsWriter = tweetsWriter;
+    }
+
+    public JLabel getLblTweetsLogger() {
+        return lblTweetsLogger;
+    }
+
+    public void setLblTweetsLogger(JLabel lblTweetsLogger) {
+        this.lblTweetsLogger = lblTweetsLogger;
+    }
+
+    public boolean isNeedToStop() {
+        return needToStop;
+    }
+
+    public void setNeedToStop(boolean needToStop) {
+        this.needToStop = needToStop;
+    }
+    
+    
+    public  void crawlTweets(String query) {
         
+        this.tweetsWriter.open();
         
         String startURL;
         try {
@@ -51,7 +92,7 @@ public class TQuery {
                 Elements tweets = streamContainer.select("li.stream-item");
                 
                 if(tweets == null || tweets.isEmpty()) {
-                    return;
+                    this.tweetsWriter.close();
                 }
                 
                 System.out.println(String.format("%s - Found %d tweet(s) ..", getCurrentTime(), tweets.size()));
@@ -60,7 +101,7 @@ public class TQuery {
                 
                 System.out.println(String.format("%s - Writed %d tweet(s) ..", getCurrentTime(), writed));
                 
-                while(!maxPosition.isEmpty()) {
+                while(!maxPosition.isEmpty() && !this.needToStop) {
                     String nextPage = getNextPage(query, maxPosition);
 
                     JSONObject jsonObj = new JSONObject(nextPage);
@@ -72,6 +113,7 @@ public class TQuery {
                     tweets = doc.select("li.stream-item");
                     
                     if(tweets.isEmpty()) {
+                        this.tweetsWriter.close();
                         return;
                     }
                     
@@ -96,7 +138,7 @@ public class TQuery {
     }
     
     
-    private static String getNextPage(String query, String maxPosition) {
+    private String getNextPage(String query, String maxPosition) {
         
         String autoLoadURL;
         StringBuilder stringBuilder = new StringBuilder();
@@ -129,7 +171,10 @@ public class TQuery {
         
     }
     
-    private static int processTweets(Elements tweets) {
+    private int processTweets(Elements tweets) {
+        
+        int writed = 0;
+        
         for (Element tweet: tweets) {
             long tweetID = Long.parseLong(tweet.attr("data-item-id"));
             
@@ -149,32 +194,20 @@ public class TQuery {
                 userName = user.first().text();
             }
             
-            System.out.println(tweetID + ", " + tweetText);
+            if(tweetsWriter.write(new Tweet(tweetID, tweetText, createdAt, userName, null))) {
+                writed++;
+            }
             
         }
-        return 0;
+        return writed;
     }
 
 
     
-    private static String getCurrentTime() {
+    private String getCurrentTime() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();    
         return dateFormat.format(date);
-    }
+    }    
     
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        //crawlTweets("from:mhjabreel since:2014-03-02", null);
-        
-        TweetsSpider spider = new TweetsSpider(new CSVTweetsWriter("E:\\tst.csv"));
-        spider.crawlTweets("from:mhjabreel since:2014-03-02");
-
-        //q=from:mhjabreel since:2014-03-02
-    }
-
 }

@@ -15,4 +15,8 @@ public interface TweetsWriter {
     
     boolean write(Tweet tweet);
     
+    void open();
+    
+    void close();
+    
 }
