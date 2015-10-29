@@ -115,7 +115,7 @@ public class FrmQuery extends javax.swing.JFrame {
 
         jLabel7.setText("Written in");
 
-        cmbLangs.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Any Language", "Amharic (አማርኛ)", "Arabic (العربية)", "Armenian (հայերեն)", "Bengali (বাংলা)", "Bosnian (bosanski)", "Bulgarian (български)", "Burmese (ဗမာ)", "<option value=\"ckb\">Central Kurdish (کوردیی ناوەندی)", "Chinese (中文)", "Croatian (hrvatski)", "Danish (dansk)", "Divehi (Divehi)", "Dutch (Nederlands)", "English (English)", "Estonian (eesti)", "Finnish (suomi)", "French (français)", "Georgian (ქართული)", "German (Deutsch)", "Greek (Ελληνικά)", "Gujarati (ગુજરાતી)", "Hebrew (עברית)", "Hindi (हिन्दी)", "Hungarian (magyar)", "Icelandic (íslenska)", "Indonesian (Bahasa Indonesia)", "Italian (italiano)", "Japanese (日本語)", "Kannada (ಕನ್ನಡ)", "Khmer (ខ្មែរ)", "Korean (한국어)", "Lao (ລາວ)", "Latvian (latviešu)", "Lithuanian (lietuvių)", "Malayalam (മലയാളം)", "Marathi (मराठी)", "Nepali (नेपाली)", "Norwegian (norsk)", "Oriya (ଓଡ଼ିଆ)", "Pashto (پښتو)", "Persian (فارسی)", "Polish (polski)", "Portuguese (português)", "Punjabi (ਪੰਜਾਬੀ)", "Romanian (română)", "Russian (русский)", "Serbian (српски)", "Sindhi (سنڌي)", "Sinhala (සිංහල)", "Slovak (slovenčina)", "Slovenian (slovenščina)", "Spanish (español)", "Swedish (svenska)", "Tagalog (Tagalog)", "Tamil (தமிழ்)", "Telugu (తెలుగు)", "Thai (ไทย)", "Tibetan (བོད་སྐད་)", "Turkish (Türkçe)", "Urdu (اردو)", "Uyghur (ئۇيغۇرچە)", "Vietnamese (Tiếng Việt)" }));
+        cmbLangs.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Any Language", "Amharic (አማርኛ)", "Arabic (العربية)", "Armenian (հայերեն)", "Bengali (বাংলা)", "Bosnian (bosanski)", "Bulgarian (български)", "Burmese (ဗမာ)", "Central Kurdish (کوردیی ناوەندی)", "Chinese (中文)", "Croatian (hrvatski)", "Danish (dansk)", "Divehi (Divehi)", "Dutch (Nederlands)", "English (English)", "Estonian (eesti)", "Finnish (suomi)", "French (français)", "Georgian (ქართული)", "German (Deutsch)", "Greek (Ελληνικά)", "Gujarati (ગુજરાતી)", "Hebrew (עברית)", "Hindi (हिन्दी)", "Hungarian (magyar)", "Icelandic (íslenska)", "Indonesian (Bahasa Indonesia)", "Italian (italiano)", "Japanese (日本語)", "Kannada (ಕನ್ನಡ)", "Khmer (ខ្មែរ)", "Korean (한국어)", "Lao (ລາວ)", "Latvian (latviešu)", "Lithuanian (lietuvių)", "Malayalam (മലയാളം)", "Marathi (मराठी)", "Nepali (नेपाली)", "Norwegian (norsk)", "Oriya (ଓଡ଼ିଆ)", "Pashto (پښتو)", "Persian (فارسی)", "Polish (polski)", "Portuguese (português)", "Punjabi (ਪੰਜਾਬੀ)", "Romanian (română)", "Russian (русский)", "Serbian (српски)", "Sindhi (سنڌي)", "Sinhala (සිංහල)", "Slovak (slovenčina)", "Slovenian (slovenščina)", "Spanish (español)", "Swedish (svenska)", "Tagalog (Tagalog)", "Tamil (தமிழ்)", "Telugu (తెలుగు)", "Thai (ไทย)", "Tibetan (བོད་སྐད་)", "Turkish (Türkçe)", "Urdu (اردو)", "Uyghur (ئۇيغۇرچە)", "Vietnamese (Tiếng Việt)" }));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("People");
@@ -654,7 +654,7 @@ public class FrmQuery extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

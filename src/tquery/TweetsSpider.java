@@ -198,18 +198,22 @@ public class TweetsSpider {
                 createdAt = tweetTime.first().attr("title");
             }
             
-            String tweetText = tweet.select("p.tweet-text").first().text();
+            Elements tweetsTexts = tweet.select("p.tweet-text");
             
-            Elements user = tweet.select("span.username");
-            
-            String userName = "";
-            
-            if(!user.isEmpty()) {
-                userName = user.first().text();
-            }
-            
-            if(tweetsWriter.write(new Tweet(tweetID, tweetText, createdAt, userName, null))) {
-                writed++;
+            if(!tweetsTexts.isEmpty()) {
+                String tweetText = tweetsTexts.first().text();
+
+                Elements user = tweet.select("span.username");
+
+                String userName = "";
+
+                if(!user.isEmpty()) {
+                    userName = user.first().text();
+                    if(tweetsWriter.write(new Tweet(tweetID, tweetText, createdAt, userName, null))) {
+                        writed++;
+                    }                    
+                }
+
             }
             
         }
