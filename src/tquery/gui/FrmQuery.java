@@ -5,6 +5,16 @@
  */
 package tquery.gui;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.stage.FileChooser;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import tquery.TweetsSpider;
+import tquery.utils.CSVTweetsWriter;
+
 /**
  *
  * @author MHJ
@@ -14,6 +24,11 @@ public class FrmQuery extends javax.swing.JFrame {
     /**
      * Creates new form FrmQuery
      */
+    
+    private TweetsSpider spider;
+    
+    private Thread spiderWorker;
+    
     public FrmQuery() {
         initComponents();
     }
@@ -27,6 +42,7 @@ public class FrmQuery extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -61,6 +77,8 @@ public class FrmQuery extends javax.swing.JFrame {
         ckNegative = new javax.swing.JCheckBox();
         ckQuestions = new javax.swing.JCheckBox();
         ckRetweets = new javax.swing.JCheckBox();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         opCSV = new javax.swing.JRadioButton();
@@ -70,10 +88,11 @@ public class FrmQuery extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         btnBrwose = new javax.swing.JButton();
         btnStart = new javax.swing.JButton();
-        btnPause = new javax.swing.JButton();
         btnStop = new javax.swing.JButton();
         lblMsgs = new javax.swing.JLabel();
         lblTweetsLog = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("tQuery");
@@ -130,6 +149,10 @@ public class FrmQuery extends javax.swing.JFrame {
 
         ckRetweets.setText("Include retweets");
 
+        jLabel22.setText("yyyy-mm-dd");
+
+        jLabel23.setText("yyyy-mm-dd");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -137,73 +160,81 @@ public class FrmQuery extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
+                                .addGap(31, 31, 31)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel13)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(2, 2, 2)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jLabel13)))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel8)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel12))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel14))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(jLabel15)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel8)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel12))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel14))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel15)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAllWords)
-                    .addComponent(txtExact)
-                    .addComponent(txtAnyWords)
-                    .addComponent(txtNoneWords)
-                    .addComponent(txtHashTags)
-                    .addComponent(cmbLangs, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtFromAccount)
-                    .addComponent(txtToAccount)
-                    .addComponent(txtMentioning)
-                    .addComponent(txtPlace)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtAllWords)
+                            .addComponent(txtExact)
+                            .addComponent(txtAnyWords)
+                            .addComponent(txtNoneWords)
+                            .addComponent(txtHashTags)
+                            .addComponent(cmbLangs, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtFromAccount)
+                            .addComponent(txtToAccount)
+                            .addComponent(txtMentioning)
+                            .addComponent(txtPlace)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtSince, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(66, 66, 66)
-                                .addComponent(jLabel16))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(ckPositive)
-                                .addGap(27, 27, 27)
-                                .addComponent(ckNegative)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(txtSince, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(66, 66, 66)
+                                        .addComponent(jLabel16))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(ckPositive)
+                                        .addGap(27, 27, 27)
+                                        .addComponent(ckNegative)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ckQuestions)
+                                        .addGap(4, 4, 4)))
                                 .addGap(18, 18, 18)
-                                .addComponent(ckQuestions)
-                                .addGap(4, 4, 4)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 40, Short.MAX_VALUE)
-                                .addComponent(txtUntil, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(ckRetweets)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(0, 40, Short.MAX_VALUE)
+                                        .addComponent(txtUntil, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(ckRetweets)
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel17)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel17)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(241, 241, 241)
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel23)
+                .addGap(67, 67, 67))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,7 +284,7 @@ public class FrmQuery extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(txtPlace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel14)
@@ -263,7 +294,11 @@ public class FrmQuery extends javax.swing.JFrame {
                         .addComponent(txtSince, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel16)
                         .addComponent(txtUntil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -279,16 +314,24 @@ public class FrmQuery extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel18.setText("Output format");
 
+        buttonGroup1.add(opCSV);
         opCSV.setText("CSV");
 
+        buttonGroup1.add(opJSON);
         opJSON.setText("JSON");
 
+        buttonGroup1.add(opSQLIte);
         opSQLIte.setText("SQLite");
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel19.setText("File path");
 
         btnBrwose.setText("...");
+        btnBrwose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBrwoseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -337,10 +380,19 @@ public class FrmQuery extends javax.swing.JFrame {
         );
 
         btnStart.setText("Start");
-
-        btnPause.setText("Pause");
+        btnStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStartActionPerformed(evt);
+            }
+        });
 
         btnStop.setText("Stop");
+        btnStop.setEnabled(false);
+        btnStop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStopActionPerformed(evt);
+            }
+        });
 
         lblMsgs.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMsgs.setText("Click start to start scraping tweets..");
@@ -348,29 +400,38 @@ public class FrmQuery extends javax.swing.JFrame {
         lblTweetsLog.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblTweetsLog.setText("0 tweet(s) scraped");
 
+        jLabel20.setText("This scraper has been developed by: Mohammed Jabreel, PhD reaseacher @ iTAKA group, URV, Tarragona Spain");
+
+        jLabel21.setText("Email: mhjabreel@gmail.com");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnStart)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPause)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnStop)
-                .addGap(11, 11, 11))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(lblMsgs)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTweetsLog)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnStart)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnStop))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblMsgs)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblTweetsLog))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel21)
+                                    .addComponent(jLabel20))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -383,17 +444,204 @@ public class FrmQuery extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnStart)
-                    .addComponent(btnPause)
                     .addComponent(btnStop))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMsgs)
                     .addComponent(lblTweetsLog))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel21)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
+        
+        String [] langs = new String[] {
+              "am",
+              "ar",
+              "hy",
+              "bn",
+              "bs",
+              "bg",
+              "my",
+              "ckb",
+              "zh",
+              "hr",
+              "da",
+              "dv",
+              "nl",
+              "en",
+              "et",
+              "fi",
+              "fr",
+              "ka",
+              "de",
+              "el",
+              "gu",
+              "he",
+              "hi",
+              "hu",
+              "is",
+              "id",
+              "it",
+              "ja",
+              "kn",
+              "km",
+              "ko",
+              "lo",
+              "lv",
+              "lt",
+              "ml",
+              "mr",
+              "ne",
+              "no",
+              "or",
+              "ps",
+              "fa",
+              "pl",
+              "pt",
+              "pa",
+              "ro",
+              "ru",
+              "sr",
+              "sd",
+              "si",
+              "sk",
+              "sl",
+              "es",
+              "sv",
+              "tl",
+              "ta",
+              "te",
+              "th",
+              "bo",
+              "tr",
+              "ur",
+              "ug",
+              "vi"            
+        };
+        
+        btnStart.setEnabled(false);
+        btnStop.setEnabled(true);
+        
+        
+        
+        List<String> params = new ArrayList<>();
+        
+        //a, b c "d, e" t OR y -z #rr lang:ar from:m to:n @A near:"k" within:15mi since:2015-10-28 until:2015-10-29 :) :( ? include:retweets
+        
+        if(!txtAllWords.getText().isEmpty()) {
+            params.add(txtAllWords.getText().trim());
+        }
+        
+        if(!txtExact.getText().isEmpty()) {
+            params.add(String.format("\"%s\"", txtExact.getText().trim()));
+        }
+        
+        if(!txtAnyWords.getText().isEmpty()) {
+            params.add(txtAnyWords.getText().trim().replace(" ", " OR "));
+        }
+        
+        if(!txtNoneWords.getText().isEmpty()) {
+            params.add("-" +txtNoneWords.getText().trim().replace(" ", " -"));
+        }
+        
+        if(!txtHashTags.getText().isEmpty()) {
+            params.add("#" + txtHashTags.getText().trim().replace(" ", " OR #"));
+        } 
+        
+        if(cmbLangs.getSelectedIndex() > 0) {
+            params.add(String.format("lang:%s", langs[cmbLangs.getSelectedIndex() - 1]));
+        }
+        
+        if(!txtFromAccount.getText().isEmpty()) {
+            params.add("from:" + txtFromAccount.getText().trim().replace(" ", " OR from:"));
+        }
+        
+        if(!txtToAccount.getText().isEmpty()) {
+            params.add("to:" + txtToAccount.getText().trim().replace(" ", " OR to:"));
+        }  
+        
+        if(!txtMentioning.getText().isEmpty()) {
+            params.add("@" + txtMentioning.getText().trim().replace(" ", " OR @"));
+        }        
+        
+        if(!txtPlace.getText().isEmpty()) {
+            params.add(String.format("near:\"%s\" within:15mi", txtPlace.getText().trim())); 
+        }
+        
+        if(!txtSince.getText().isEmpty()) {
+            params.add("since:" + txtSince.getText().trim());
+        }    
+        
+        if(!txtUntil.getText().isEmpty()) {
+            params.add("until:" + txtUntil.getText().trim());
+        }    
+        
+        if(ckPositive.isSelected()) {
+            params.add(":)");
+        }
+  
+        if(ckNegative.isSelected()) {
+            params.add(":(");
+        }
+        
+        if(ckQuestions.isSelected()) {
+            params.add("?");
+        }        
+        
+        if(ckRetweets.isSelected()) {
+            params.add("include:retweets");
+        } 
+        
+        String query = String.join(" ", params);
+        
+        System.out.println(query);
+        
+        spiderWorker = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                if(opCSV.isSelected()) {
+                    spider = new TweetsSpider(new CSVTweetsWriter(txtFilePath.getText()), lblTweetsLog);
+                    spider.crawlTweets(query);
+                    btnStart.setEnabled(true);
+                    btnStop.setEnabled(false);                    
+                }                
+            }
+        });
+        
+        spiderWorker.start();
+               
+        
+    }//GEN-LAST:event_btnStartActionPerformed
+
+    private void btnStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopActionPerformed
+        this.spider.setNeedToStop(true);
+        try {
+            spiderWorker.join();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(FrmQuery.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.btnStart.setEnabled(true);
+        this.btnStop.setEnabled(false);
+    }//GEN-LAST:event_btnStopActionPerformed
+
+    private void btnBrwoseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrwoseActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Specify a file to save");
+        fileChooser.setFileFilter(new FileNameExtensionFilter("csv file","csv"));
+        int userSelection = fileChooser.showSaveDialog(this);
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            txtFilePath.setText(fileChooser.getSelectedFile().getAbsolutePath());
+        }        
+        
+    }//GEN-LAST:event_btnBrwoseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -432,9 +680,9 @@ public class FrmQuery extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBrwose;
-    private javax.swing.JButton btnPause;
     private javax.swing.JButton btnStart;
     private javax.swing.JButton btnStop;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox ckNegative;
     private javax.swing.JCheckBox ckPositive;
     private javax.swing.JCheckBox ckQuestions;
@@ -452,6 +700,10 @@ public class FrmQuery extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

@@ -77,6 +77,8 @@ public class TweetsSpider {
         
         this.tweetsWriter.open();
         
+        int tweetsScraed = 0;
+        
         String startURL;
         try {
             startURL = "https://twitter.com/search?f=tweets&vertical=default&q=" + URLEncoder.encode(query, "UTF-8") + "&src=typd";
@@ -99,6 +101,12 @@ public class TweetsSpider {
                 
                 int writed = processTweets(tweets);
                 
+                tweetsScraed += writed;
+                
+                if(lblTweetsLogger != null) {
+                    lblTweetsLogger.setText(String.format("%d tweet(s) scraped", tweetsScraed));
+                }
+                
                 System.out.println(String.format("%s - Writed %d tweet(s) ..", getCurrentTime(), writed));
                 
                 while(!maxPosition.isEmpty() && !this.needToStop) {
@@ -113,25 +121,31 @@ public class TweetsSpider {
                     tweets = doc.select("li.stream-item");
                     
                     if(tweets.isEmpty()) {
-                        this.tweetsWriter.close();
-                        return;
+                        break;
                     }
                     
                     System.out.println(String.format("%s - Found %d tweet(s) ..", getCurrentTime(), tweets.size()));
 
                     writed = processTweets(tweets);
+                    
+                    tweetsScraed += writed;
 
+                    if(lblTweetsLogger != null) {
+                        lblTweetsLogger.setText(String.format("%d tweet(s) scraped", tweetsScraed));
+                    }
                     System.out.println(String.format("%s - Writed %d tweet(s) ..", getCurrentTime(), writed));                    
                     
                 }
 
             }
             
+            this.tweetsWriter.close();
+            
             System.out.println();            
         } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(TQuery.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TweetsSpider.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(TQuery.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TweetsSpider.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         
@@ -159,11 +173,11 @@ public class TweetsSpider {
                 
             }            
         } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(TQuery.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TweetsSpider.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MalformedURLException ex) {
-            Logger.getLogger(TQuery.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TweetsSpider.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(TQuery.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TweetsSpider.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return stringBuilder.toString();
