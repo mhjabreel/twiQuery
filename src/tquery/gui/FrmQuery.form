@@ -680,7 +680,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel20">
       <Properties>
-        <Property name="text" type="java.lang.String" value="This scraper has been developed by: Mohammed Jabreel, PhD reaseacher @ iTAKA group, URV, Tarragona Spain"/>
+        <Property name="text" type="java.lang.String" value="This scraper has been developed by: Mohammed Jabreel, PhD reseacher @ iTAKA group, URV, Tarragona Spain"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel21">
