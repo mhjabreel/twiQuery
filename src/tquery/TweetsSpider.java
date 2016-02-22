@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -36,6 +37,8 @@ public class TweetsSpider {
     private JLabel lblTweetsLogger = null;
     
     private boolean needToStop = false;
+    
+    public static String USER_AGENT = "Mozilla";//5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.2117.157 Safari/537.36";
 
     public TweetsSpider(TweetsWriter tweetsWriter) {
         this.tweetsWriter = tweetsWriter;
@@ -81,16 +84,23 @@ public class TweetsSpider {
         
         String startURL;
         try {
-            startURL = "https://twitter.com/search?f=tweets&vertical=default&q=" + URLEncoder.encode(query, "UTF-8") + "&src=typd";
-            Document doc = Jsoup.connect(startURL).get();
+            query = query.replace("#", "%23").replace(" ", "%20").replace(":", "%3A");
+            startURL = "https://twitter.com/search?q=" + query + "&src=typd&lang=en";
+            
+            Document doc = Jsoup.connect(startURL).userAgent(USER_AGENT).get();
             Elements timeline = doc.select("#timeline");
             
             if (timeline != null && !timeline.isEmpty()) {
                 
+                String initData = doc.getElementById("init-data").attr("value");
+                JSONObject jInitData = new JSONObject(initData);
+                String endPoint = jInitData.getString("searchEndpoint");
+                System.out.println(endPoint);
+                
                 Element streamContainer = timeline.first().select("div.stream-container").first();
                 
-                String maxPosition = streamContainer.attr("data-max-position");
-                
+                String maxPosition = streamContainer.attr("data-min-position");
+                System.out.println(maxPosition);
                 Elements tweets = streamContainer.select("li.stream-item");
                 
                 if(tweets == null || tweets.isEmpty()) {
@@ -110,7 +120,7 @@ public class TweetsSpider {
                 System.out.println(String.format("%s - Writed %d tweet(s) ..", getCurrentTime(), writed));
                 
                 while(!maxPosition.isEmpty() && !this.needToStop) {
-                    String nextPage = getNextPage(query, maxPosition);
+                    String nextPage = getNextPage(endPoint, maxPosition);
 
                     JSONObject jsonObj = new JSONObject(nextPage);
 
@@ -152,23 +162,27 @@ public class TweetsSpider {
     }
     
     
-    private String getNextPage(String query, String maxPosition) {
+    private String getNextPage(String searchEndPoint, String maxPosition) {
         
         String autoLoadURL;
         StringBuilder stringBuilder = new StringBuilder();
+        
         try {
-            autoLoadURL = "https://twitter.com/i/search/timeline?vertical=default&q=" +
-                    URLEncoder.encode(query, "UTF-8") + "&src=typd&include_available_features=1&include_entities=1&max_position=" +
-                    maxPosition + "&reset_error_state=false";
+            autoLoadURL = "https://twitter.com" +
+                    searchEndPoint +
+                    "&include_available_features=1&include_entities=1" +
+                    "&max_position=" + maxPosition + "&reset_error_state=false";
             URL url = new URL(autoLoadURL);
+            URLConnection conn = url.openConnection();
+            conn.setRequestProperty("User-Agent", "Mozilla");
+            System.out.println(url.toString());
             
-            //System.out.println(url.toString());
-            
-            BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
+            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             
             String strTemp = "";
             
             while (null != (strTemp = br.readLine())) {
+                System.out.println(strTemp);
                 stringBuilder.append(strTemp);
                 
             }            

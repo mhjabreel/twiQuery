@@ -315,6 +315,7 @@ public class FrmQuery extends javax.swing.JFrame {
         jLabel18.setText("Output format");
 
         buttonGroup1.add(opCSV);
+        opCSV.setSelected(true);
         opCSV.setText("CSV");
 
         buttonGroup1.add(opJSON);
@@ -400,7 +401,7 @@ public class FrmQuery extends javax.swing.JFrame {
         lblTweetsLog.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblTweetsLog.setText("0 tweet(s) scraped");
 
-        jLabel20.setText("This scraper has been developed by: Mohammed Jabreel, PhD reseacher @ iTAKA group, URV, Tarragona Spain");
+        jLabel20.setText("This scraper has been developed by: Mohammed Jabreel, PhD candidate @ iTAKA group, URV, Tarragona Spain");
 
         jLabel21.setText("Email: mhjabreel@gmail.com");
 

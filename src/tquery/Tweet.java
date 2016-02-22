@@ -74,7 +74,7 @@ public class Tweet {
 
     @Override
     public String toString() {
-        return String.format("%d, %s, %s, %s, %s", this.tweetID, this.text.replace(',', ';'), this.createdAt, this.userName, this.geo);
+        return String.format("%d, %s, %s, %s, %s", this.tweetID, this.text.replace(",", "$$$COMA$$$"), this.createdAt, this.userName, this.geo);
     }
     
     
